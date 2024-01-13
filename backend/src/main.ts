@@ -13,6 +13,16 @@ async function bootstrap() {
     credentials: true,
   });
 
+  app.use((req, res, next) => {
+    req.user = {
+      id: 'rec_cmbuve91vhrpaedl0asg',
+      username: 'yaldram',
+      name: 'Arsalan Yaldram',
+    };
+
+    next();
+  });
+
   app.setGlobalPrefix('api');
 
   await app.listen(3000);

@@ -7,14 +7,14 @@ import {
   Post,
   Req,
   Res,
-  UseGuards,
+  // UseGuards,
 } from '@nestjs/common';
 
 import { AuthService } from './auth.service';
 import { CreateUserDto } from '../users/dto/create.schema';
-import { LocalAuthenticationGuard } from './guards/local.guard';
+// import { LocalAuthenticationGuard } from './guards/local.guard';
 import { RequestWithUser } from './auth.interface';
-import { JwtAuthGuard } from './guards/jwt.guard';
+// import { JwtAuthGuard } from './guards/jwt.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -26,7 +26,7 @@ export class AuthController {
   }
 
   @HttpCode(200)
-  @UseGuards(LocalAuthenticationGuard)
+  // @UseGuards(LocalAuthenticationGuard)
   @Post('login')
   async login(@Req() request: RequestWithUser, @Res() response: Response) {
     const { user } = request;
@@ -36,7 +36,7 @@ export class AuthController {
     return response.send(user);
   }
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Post('logout')
   async logOut(@Req() request: RequestWithUser, @Res() response: Response) {
     response.setHeader('Set-Cookie', this.authService.getCookieForLogOut());
@@ -44,7 +44,7 @@ export class AuthController {
     return response.sendStatus(200);
   }
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Get('authenticate')
   authenticate(@Req() request: RequestWithUser) {
     return request.user;

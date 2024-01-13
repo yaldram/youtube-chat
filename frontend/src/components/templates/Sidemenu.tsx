@@ -1,4 +1,4 @@
-import { Form, Link, NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { PlusIcon } from 'lucide-react';
 
 import { Collection, User } from '@/types';
@@ -65,11 +65,11 @@ export function SideMenu({ collections, user }: SideMenuProps) {
             <span>{user.name}</span>
           </p>
           {/* Logout button */}
-          <Form method="POST">
+          {/* <Form method="POST">
             <Button type="submit" size="sm">
               Logout
             </Button>
-          </Form>
+          </Form> */}
         </div>
       </div>
     </div>
