@@ -1,3 +1,5 @@
+// const apiUrl = 'https://youtube-chat.onrender.com/api';
+
 const apiUrl = 'http://localhost:3000/api';
 
 export const apiEndpoints = {

@@ -9,16 +9,18 @@ export function VideoDetailPage() {
   return (
     <ScrollArea className="w-full h-full mt-8 pb-9 pr-9">
       <div className="flex flex-col gap-6">
-        <div
-          style={{ height: '500px' }}
-          className="max-w-full overflow-hidden rounded-md"
-        >
-          <img
-            src={videoDetails.thumbnailUrl}
-            alt="Thumbnail"
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
+        <a href={videoDetails.url} target="_blank" rel="noopener noreferrer">
+          <div
+            style={{ height: '500px' }}
+            className="cursor-pointer max-w-full overflow-hidden rounded-md"
+          >
+            <img
+              src={videoDetails.thumbnailUrl}
+              alt="Thumbnail"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+        </a>
         <div className="text-center flex flex-col gap-2">
           <h1 className="text-5xl font-bold leading-tight tracking-tighter">
             {videoDetails.title}

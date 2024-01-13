@@ -15,3 +15,6 @@ export const DEFAULT_VIDEO = {
   thumbnail:
     'https://cdn.pixabay.com/photo/2023/03/16/16/49/watercolor-7857103_640.png',
 };
+
+export const YOUTUBE_REGEX =
+  /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
