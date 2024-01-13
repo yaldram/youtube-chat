@@ -1,0 +1,18 @@
+{
+  "id": "mig_cm0lfpggs1n0db80iia0",
+  "parentID": "mig_cm0lfg8gs1n0db80ii90",
+  "checksum": "1:7d6d6b6b26c43426cc42dcc1a7c01f176c729fc20d0d8f7cc29e07aef4c36b2d",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "title",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": "Default title"
+        },
+        "table": "papers"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "mig_cm0lg7b4p0mchah3grl0",
+  "parentID": "mig_cm0lftu5ljk740764700",
+  "checksum": "1:a3de77f44891e8c87bba60fea8c7d57f32259345b0873bed3aeb489c279e4e05",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "collectionId",
+          "type": "link",
+          "link": {
+            "table": "collections"
+          }
+        },
+        "table": "papers"
+      }
+    }
+  ]
+}

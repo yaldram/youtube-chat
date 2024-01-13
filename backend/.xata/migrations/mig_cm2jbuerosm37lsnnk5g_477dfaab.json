@@ -1,0 +1,13 @@
+{
+  "id": "mig_cm2jbuerosm37lsnnk5g",
+  "parentID": "mig_cm2jbr6rosm37lsnnk4g",
+  "checksum": "1:477dfaabbbadc0437ae7056da181d6bc9a9cc9935cb9f5d20f36095c73ad290b",
+  "operations": [
+    {
+      "removeColumn": {
+        "column": "text",
+        "table": "embeddings"
+      }
+    }
+  ]
+}

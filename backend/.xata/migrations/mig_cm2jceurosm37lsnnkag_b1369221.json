@@ -1,0 +1,19 @@
+{
+  "id": "mig_cm2jceurosm37lsnnkag",
+  "parentID": "mig_cm2jc9urosm37lsnnk9g",
+  "checksum": "1:b13692212cba228b03bf0079829638b2396aac3a91045353e2124f1c480b1385",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "videoId",
+          "type": "link",
+          "link": {
+            "table": "videos"
+          }
+        },
+        "table": "embeddings"
+      }
+    }
+  ]
+}

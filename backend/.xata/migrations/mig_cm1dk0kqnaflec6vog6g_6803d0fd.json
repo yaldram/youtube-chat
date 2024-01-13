@@ -1,0 +1,16 @@
+{
+  "id": "mig_cm1dk0kqnaflec6vog6g",
+  "parentID": "mig_cm1dju4qnaflec6vog5g",
+  "checksum": "1:6803d0fd6643d6ef9031dd5393ee73d7d36ebc00e7aca59766cf96edc5f1bcc3",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "description",
+          "type": "string"
+        },
+        "table": "videos"
+      }
+    }
+  ]
+}

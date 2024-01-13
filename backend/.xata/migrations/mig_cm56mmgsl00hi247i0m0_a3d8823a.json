@@ -1,0 +1,19 @@
+{
+  "id": "mig_cm56mmgsl00hi247i0m0",
+  "parentID": "mig_cm56mh0sl00hi247i0l0",
+  "checksum": "1:a3d8823ac3533a4484011aca90552a4714b275cc94a411b90f86176d0bdb8eff",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "collectionId",
+          "type": "link",
+          "link": {
+            "table": "collections"
+          }
+        },
+        "table": "collectionvideos"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "mig_cm7rsnosl00hi247ihp0",
+  "parentID": "mig_cm7rcaibv9f1s7jqita0",
+  "checksum": "1:f784cc274a388624995acb640bc000e6337c56a58ed505664d2ccda5ff88b6cb",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "publishDate",
+          "type": "datetime"
+        },
+        "table": "videos"
+      }
+    }
+  ]
+}

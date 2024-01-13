@@ -1,0 +1,16 @@
+{
+  "id": "mig_cm2jcierosm37lsnnkbg",
+  "parentID": "mig_cm2jceurosm37lsnnkag",
+  "checksum": "1:48484cbdbdac29b1d670a56e6c06b565ad35d56878777597ce27f892ad092bc8",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "start",
+          "type": "int"
+        },
+        "table": "embeddings"
+      }
+    }
+  ]
+}

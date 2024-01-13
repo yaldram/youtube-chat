@@ -1,0 +1,16 @@
+{
+  "id": "mig_cm7rb02bv9f1s7jqit90",
+  "parentID": "mig_cm7ratibv9f1s7jqit80",
+  "checksum": "1:09ed21a7ac680d17a931c0c67128c9e31f3225c522de3d7fb855baa8ac549859",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "youtubeId",
+          "type": "string"
+        },
+        "table": "videos"
+      }
+    }
+  ]
+}

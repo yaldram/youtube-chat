@@ -1,0 +1,12 @@
+{
+  "id": "mig_cm56mb5j1s5b7dbl39hg",
+  "parentID": "mig_cm4odaosl00hi247ht40",
+  "checksum": "1:9db63f0992d5e245c07e0cb6bf2d683fb29eb40a47d58ebc17da232c701caed0",
+  "operations": [
+    {
+      "addTable": {
+        "table": "collectionvideos"
+      }
+    }
+  ]
+}

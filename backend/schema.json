@@ -1,0 +1,160 @@
+{
+  "tables": [
+    {
+      "name": "collections",
+      "columns": [
+        {
+          "name": "title",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": "Dummy title"
+        },
+        {
+          "name": "userId",
+          "type": "link",
+          "link": {
+            "table": "users"
+          }
+        }
+      ],
+      "revLinks": [
+        {
+          "column": "collectionId",
+          "table": "collectionvideos"
+        }
+      ]
+    },
+    {
+      "name": "videos",
+      "columns": [
+        {
+          "name": "url",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": "default url"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "author",
+          "type": "string"
+        },
+        {
+          "name": "length",
+          "type": "int"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "thumbnailUrl",
+          "type": "string"
+        },
+        {
+          "name": "transcript",
+          "type": "file",
+          "file": {
+            "defaultPublicAccess": true
+          }
+        },
+        {
+          "name": "youtubeId",
+          "type": "string"
+        },
+        {
+          "name": "chatEnabled",
+          "type": "bool",
+          "notNull": true,
+          "defaultValue": "false"
+        },
+        {
+          "name": "publishDate",
+          "type": "datetime"
+        }
+      ],
+      "revLinks": [
+        {
+          "column": "videoId",
+          "table": "embeddings"
+        },
+        {
+          "column": "videoId",
+          "table": "collectionvideos"
+        }
+      ]
+    },
+    {
+      "name": "embeddings",
+      "columns": [
+        {
+          "name": "text",
+          "type": "text"
+        },
+        {
+          "name": "embedding",
+          "type": "vector",
+          "vector": {
+            "dimension": 1024
+          }
+        },
+        {
+          "name": "videoId",
+          "type": "link",
+          "link": {
+            "table": "videos"
+          }
+        },
+        {
+          "name": "start",
+          "type": "int"
+        }
+      ]
+    },
+    {
+      "name": "collectionvideos",
+      "columns": [
+        {
+          "name": "videoId",
+          "type": "link",
+          "link": {
+            "table": "videos"
+          }
+        },
+        {
+          "name": "collectionId",
+          "type": "link",
+          "link": {
+            "table": "collections"
+          }
+        }
+      ]
+    },
+    {
+      "name": "users",
+      "columns": [
+        {
+          "name": "password",
+          "type": "string"
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "unique": true
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "revLinks": [
+        {
+          "column": "userId",
+          "table": "collections"
+        }
+      ]
+    }
+  ]
+}

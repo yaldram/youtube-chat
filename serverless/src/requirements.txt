@@ -1,0 +1,5 @@
+cohere
+pytube
+xata
+youtube_transcript_api
+pusher

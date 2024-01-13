@@ -1,0 +1,19 @@
+{
+  "id": "mig_cm2o7gsdus6c15lalfb0",
+  "parentID": "mig_cm2o7a6rosm37lsnnodg",
+  "checksum": "1:87c645f8ef39ba2121070652ca92830a4675eb8401201fc64d75d1ed7c871c02",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "transcript",
+          "type": "file",
+          "file": {
+            "defaultPublicAccess": true
+          }
+        },
+        "table": "videos"
+      }
+    }
+  ]
+}

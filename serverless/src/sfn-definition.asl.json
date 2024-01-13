@@ -1,0 +1,39 @@
+{
+  "Comment": "A Machine to generate info, summarize, creating embeddings of youtube videos.",
+  "StartAt": "InfoAndTranscript",
+  "States": {
+    "InfoAndTranscript": {
+      "Type": "Parallel",
+      "Branches": [
+        {
+          "StartAt": "InfoFunction",
+          "States": {
+            "InfoFunction": {
+              "Type": "Task",
+              "Resource": "${InfoFunctionArn}",
+              "End": true
+            }
+          }
+        },
+        {
+          "StartAt": "TranscriptFunction",
+          "States": {
+            "TranscriptFunction": {
+              "Type": "Task",
+              "Resource": "${TranscriptFunctionArn}",
+              "ResultPath": "$.videoDetails",
+              "Next": "EmbeddingFunction"
+            },
+            "EmbeddingFunction": {
+              "Type": "Task",
+              "Resource": "${EmbeddingFunctionArn}",
+              "InputPath": "$.videoDetails", 
+              "End": true
+            }
+          }
+        }
+      ],
+      "End": true
+    }
+  }
+}

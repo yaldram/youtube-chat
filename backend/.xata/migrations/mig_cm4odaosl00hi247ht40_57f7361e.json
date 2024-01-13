@@ -1,0 +1,13 @@
+{
+  "id": "mig_cm4odaosl00hi247ht40",
+  "parentID": "mig_cm4obc0sl00hi247ht30",
+  "checksum": "1:57f7361e9458cf99e48554f986b562bbac66648fb9bbcf9b0035c54f8bd0aa0b",
+  "operations": [
+    {
+      "removeColumn": {
+        "column": "emoji",
+        "table": "collections"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "mig_cm1e0ckqnaflec6vog9g",
+  "parentID": "mig_cm1dkh7n46bhq5735mu0",
+  "checksum": "1:17a9d518c3d793e3026550c7241dd1d885b3b97a2e77adeda8620b2984bc11c1",
+  "operations": [
+    {
+      "removeColumn": {
+        "column": "title",
+        "table": "videos"
+      }
+    }
+  ]
+}

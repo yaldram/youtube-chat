@@ -1,0 +1,18 @@
+{
+  "id": "mig_cm4obc0sl00hi247ht30",
+  "parentID": "mig_cm2o7gsdus6c15lalfb0",
+  "checksum": "1:fadc2bcfa4364d1555e8a6cf4181d19f16144eee318b0842764adf05abe5a547",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "emoji",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": "default emoji"
+        },
+        "table": "collections"
+      }
+    }
+  ]
+}

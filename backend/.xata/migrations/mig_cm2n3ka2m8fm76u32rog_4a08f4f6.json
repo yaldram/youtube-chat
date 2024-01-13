@@ -1,0 +1,16 @@
+{
+  "id": "mig_cm2n3ka2m8fm76u32rog",
+  "parentID": "mig_cm2jcierosm37lsnnkbg",
+  "checksum": "1:4a08f4f6a935159968940738daf3b88872c83baad3a34e704e186639c41919ca",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "thumbnailUrl",
+          "type": "string"
+        },
+        "table": "videos"
+      }
+    }
+  ]
+}

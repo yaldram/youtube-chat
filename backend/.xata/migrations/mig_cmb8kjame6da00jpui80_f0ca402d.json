@@ -1,0 +1,16 @@
+{
+  "id": "mig_cmb8kjame6da00jpui80",
+  "parentID": "mig_cmb8keame6da00jpui70",
+  "checksum": "1:f0ca402daa37ed68187d9d6aed82f91ac89397703ebdf50236cba1477fc6e83e",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "name",
+          "type": "string"
+        },
+        "table": "users"
+      }
+    }
+  ]
+}

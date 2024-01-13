@@ -1,0 +1,13 @@
+{
+  "id": "mig_cm22pr60kp6n90jag40g",
+  "parentID": "mig_cm22ph70rjc20nl3i8hg",
+  "checksum": "1:287a29a11e0f7654cd06709ba9d934e9c150b14a71310b805abcd73381f7fe15",
+  "operations": [
+    {
+      "removeColumn": {
+        "column": "description",
+        "table": "videos"
+      }
+    }
+  ]
+}

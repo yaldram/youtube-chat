@@ -1,0 +1,16 @@
+{
+  "id": "mig_cm0lgj34p0mchah3grm0",
+  "parentID": "mig_cm0lgd8gs1n0db80iib0",
+  "checksum": "1:94843d14db45e9611dee46d3cc0ca40dc08ee80598d76a56b392cb457f3f2650",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "tags",
+          "type": "multiple"
+        },
+        "table": "papers"
+      }
+    }
+  ]
+}

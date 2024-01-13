@@ -1,0 +1,12 @@
+{
+  "id": "mig_cm0lfg8gs1n0db80ii90",
+  "parentID": "mig_cm05k5s2pp5lute7fjjg",
+  "checksum": "1:ab1226647ac1a1e48d821e9701e1e18956d94f8e7a68c085e34fe2e61a27757e",
+  "operations": [
+    {
+      "addTable": {
+        "table": "papers"
+      }
+    }
+  ]
+}

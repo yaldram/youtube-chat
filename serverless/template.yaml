@@ -1,0 +1,105 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Fetch Transcript and Create Embeddings
+
+Globals:
+  Function:
+    Timeout: 600
+    MemorySize: 128
+    LoggingConfig:
+      LogFormat: JSON
+
+Resources:
+  InfoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: info.lambda_handler
+      Runtime: python3.9
+      Architectures:
+        - arm64
+
+  TranscriptFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: transcript.lambda_handler
+      Runtime: python3.9
+      Architectures:
+        - arm64
+
+  EmbeddingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: embedding.lambda_handler
+      Runtime: python3.9
+      Architectures:
+        - arm64
+
+  YoutubeChatStateMachine:
+    Type: AWS::Serverless::StateMachine
+    Properties:
+      DefinitionUri: src/sfn-definition.asl.json
+      DefinitionSubstitutions:
+        InfoFunctionArn: !GetAtt InfoFunction.Arn
+        TranscriptFunctionArn: !GetAtt TranscriptFunction.Arn
+        EmbeddingFunctionArn: !GetAtt EmbeddingFunction.Arn
+      Name: YoutubeChatStateMachine
+      Policies:
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - "lambda:InvokeFunction"
+              Resource:
+                - !GetAtt InfoFunction.Arn
+                - !GetAtt TranscriptFunction.Arn
+                - !GetAtt EmbeddingFunction.Arn
+
+  YoutubeChatRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: TriggerYoutubeChatOnEvent
+      EventPattern:
+        source:
+          - custom.youtubeChat
+        detail-type:
+          - insert
+      State: ENABLED
+      Targets:
+        - Arn: !GetAtt YoutubeChatStateMachine.Arn
+          Id: "TargetFunction"
+          RoleArn: !GetAtt EventBridgeRole.Arn
+
+  EventBridgeRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: "events.amazonaws.com"
+            Action: "sts:AssumeRole"
+      Policies:
+        - PolicyName: "AllowEventBridgeToTriggerYoutubeChatStateMachine"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action: "states:StartExecution"
+                Resource: !Ref YoutubeChatStateMachine
+
+Outputs:
+  InfoFunction:
+    Description: Info Lambda Function ARN
+    Value: !GetAtt InfoFunction.Arn
+
+  TranscriptFunction:
+    Description: Transcript Lambda Function ARN
+    Value: !GetAtt TranscriptFunction.Arn
+
+  EmbeddingFunction:
+    Description: Embedding Lambda Function ARN
+    Value: !GetAtt EmbeddingFunction.Arn

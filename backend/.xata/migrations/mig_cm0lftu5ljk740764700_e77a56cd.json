@@ -1,0 +1,18 @@
+{
+  "id": "mig_cm0lftu5ljk740764700",
+  "parentID": "mig_cm0lfpggs1n0db80iia0",
+  "checksum": "1:e77a56cd9443aa7823d969c8b1a59ebdfd22e4522e1267119b4daeed453e7318",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "author",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": "Default author"
+        },
+        "table": "papers"
+      }
+    }
+  ]
+}

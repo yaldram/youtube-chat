@@ -1,0 +1,18 @@
+{
+  "id": "mig_cm7rcaibv9f1s7jqita0",
+  "parentID": "mig_cm7rb02bv9f1s7jqit90",
+  "checksum": "1:46819e2653395abb1e65a14313b8b6e1b3c73269322851493d419c97619325f6",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "chatEnabled",
+          "type": "bool",
+          "notNull": true,
+          "defaultValue": "false"
+        },
+        "table": "videos"
+      }
+    }
+  ]
+}

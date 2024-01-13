@@ -1,0 +1,16 @@
+{
+  "id": "mig_cm22lem0kp6n90jag3sg",
+  "parentID": "mig_cm22lc60kp6n90jag3rg",
+  "checksum": "1:b4c585d4975a013f7cfcba26fc7f999495c7db4681d15021407dce99425dcaee",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "length",
+          "type": "string"
+        },
+        "table": "videos"
+      }
+    }
+  ]
+}

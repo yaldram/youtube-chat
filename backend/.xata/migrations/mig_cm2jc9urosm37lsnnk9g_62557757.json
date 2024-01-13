@@ -1,0 +1,19 @@
+{
+  "id": "mig_cm2jc9urosm37lsnnk9g",
+  "parentID": "mig_cm2jc4urosm37lsnnk8g",
+  "checksum": "1:625577579db53b3e91a8e135ec43179194090709acc40282affc588f43cc49ab",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "embedding",
+          "type": "vector",
+          "vector": {
+            "dimension": 1024
+          }
+        },
+        "table": "embeddings"
+      }
+    }
+  ]
+}
