@@ -9,7 +9,7 @@ async function bootstrap() {
   app.use(cookieParser());
 
   app.enableCors({
-    origin: 'http://localhost:5173',
+    origin: 'http://yaldram-youtube-chat.s3-website.ap-south-1.amazonaws.com',
     credentials: true,
   });
 
