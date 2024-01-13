@@ -48,7 +48,7 @@ Follow these steps to get started with Xata and set up your project:
   xata init —schema=schema.json
   ```
 
-- Passing the schema parameter to the init command will create the ``.xatarc` and `src/config/xata.ts` for the user's own DB. You might need to create a `config` folder under `src`.
+- Passing the schema parameter to the init command will create the `.xatarc` and `src/config/xata.ts` for your own DB.
 
 ## API Routes
 

@@ -41,5 +41,3 @@ lerna-debug.log*
 
 # don't commit xata files
 .xatarc
-
-src/config/xata.ts 
