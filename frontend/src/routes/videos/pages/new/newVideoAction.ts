@@ -3,12 +3,15 @@ import type { ActionFunctionArgs } from 'react-router-dom';
 import { z } from 'zod';
 import { parse } from '@conform-to/zod';
 
+import { YOUTUBE_REGEX } from '@/lib/constants';
 import { getYouTubeVideoId } from '@/lib/utils';
 import { createVideo } from '@/apis/video';
 import { handleLoaderErrors } from '@/lib/errors';
 
 const schema = z.object({
-  url: z.string({ required_error: 'Video url is required' }),
+  url: z
+    .string({ required_error: 'Video url is required' })
+    .regex(new RegExp(YOUTUBE_REGEX), 'Youtube video url is invalid'),
 });
 
 export function validateVideoForm({ formData }: { formData: FormData }) {

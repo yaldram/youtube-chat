@@ -9,7 +9,7 @@ import {
 import { SubmissionResult } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { validateVideoForm } from './newVideoLoader';
+import { validateVideoForm } from './newVideoAction';
 import {
   Dialog,
   DialogContent,

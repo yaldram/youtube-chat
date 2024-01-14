@@ -13,11 +13,13 @@ export function VideoDetailPage() {
           style={{ height: '500px' }}
           className="max-w-full overflow-hidden rounded-md"
         >
-          <img
-            src={videoDetails.thumbnailUrl}
-            alt="Thumbnail"
-            className="w-full h-full object-cover object-center"
-          />
+          <a href={videoDetails.url} target="_blank" rel="noopener noreferrer">
+            <img
+              src={videoDetails.thumbnailUrl}
+              alt="Thumbnail"
+              className="w-full h-full object-cover object-center"
+            />
+          </a>
         </div>
         <div className="text-center flex flex-col gap-2">
           <h1 className="text-5xl font-bold leading-tight tracking-tighter">

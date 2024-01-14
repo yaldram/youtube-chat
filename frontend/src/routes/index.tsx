@@ -21,7 +21,7 @@ import { videoLoader } from './videos/videoLoader';
 import { NewCollectionPage } from './collections/pages/new/NewCollectionPage';
 import { newCollectioAction } from './collections/pages/new/newCollectionAction';
 import { NewVideoPage } from './videos/pages/new/NewVideoPage';
-import { newVideoAction } from './videos/pages/new/newVideoLoader';
+import { newVideoAction } from './videos/pages/new/newVideoAction';
 
 export const appRouter = createBrowserRouter([
   {

@@ -21,7 +21,10 @@ export class VideoService {
       },
     });
 
-    if (video) return video;
+    if (video) {
+      await this.addCollectionRelation(video.id, payload.collectionId);
+      return video;
+    }
 
     const newVideo = await this.xataClient.db.videos.create({
       youtubeId: payload.youtubeId,
@@ -59,6 +62,7 @@ export class VideoService {
       'title',
       'author',
       'thumbnailUrl',
+      'url',
       'description',
       'chatEnabled',
       'publishDate',
