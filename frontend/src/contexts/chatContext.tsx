@@ -4,8 +4,8 @@ import type { ChangeEvent, ReactNode } from 'react';
 import type { ChatMessage } from '@/types';
 import {
   deleteLocalStorageItem,
-  getLocalStorageItem,
-  setLocalStorageItem,
+  getLocalStorageJson,
+  setLocalStorageJson,
 } from '@/lib/localStorage';
 import { getUniqueId } from '@/lib/utils';
 
@@ -39,13 +39,13 @@ export const ChatProvider = ({
   const [chatInput, setChatInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>(() => {
-    const previousMessages = getLocalStorageItem(conversationId);
+    const previousMessages = getLocalStorageJson(conversationId);
     return previousMessages || [];
   });
 
   useEffect(() => {
     return () => {
-      setLocalStorageItem(conversationId, messages);
+      setLocalStorageJson(conversationId, messages);
     };
   }, [conversationId, messages]);
 
