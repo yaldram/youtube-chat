@@ -5,7 +5,7 @@ import type { ChatMessage } from '@/types';
 import {
   deleteLocalStorageItem,
   getLocalStorageJson,
-  setLocalStorageItem,
+  setLocalStorageJson,
 } from '@/lib/localStorage';
 import { getUniqueId } from '@/lib/utils';
 
@@ -45,7 +45,7 @@ export const ChatProvider = ({
 
   useEffect(() => {
     return () => {
-      setLocalStorageItem(conversationId, messages);
+      setLocalStorageJson(conversationId, messages);
     };
   }, [conversationId, messages]);
 
