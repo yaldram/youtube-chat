@@ -24,9 +24,11 @@ export class ChatService {
   }: GetRelevantQueriesArgs) {
     const queries = await this.cohereService.searchQueries(userQuery);
 
-    if (queries.length > 0) {
+    if (queries?.length > 0) {
       return topN > 0 ? queries.slice(0, topN) : queries;
     }
+
+    return [];
   }
 
   private async retrieveDocuments({
@@ -93,6 +95,10 @@ export class ChatService {
       userQuery,
       topN: searchQueriesTopN,
     });
+
+    if (relevantQueries.length === 0) {
+      return `Feel free to ask questions specifically related to the videos or collections. Unfortunately, I won't be able to provide answers to general inquiries.`;
+    }
 
     const documents: RelevantDocument[] = [];
 
