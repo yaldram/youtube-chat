@@ -1,0 +1,19 @@
+{
+  "id": "mig_cmoi8jre9qr3vfdn82e0",
+  "parentID": "mig_cmcftckrm560d60o9ls0",
+  "checksum": "1:a9c8fa7208e1d4b62777d49ad69196d8c4344219e8fa403ec2f352ac8c04c5bf",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "userId",
+          "type": "link",
+          "link": {
+            "table": "users"
+          }
+        },
+        "table": "collectionvideos"
+      }
+    }
+  ]
+}

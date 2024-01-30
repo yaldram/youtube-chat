@@ -26,3 +26,29 @@ export async function fetchVideoDetails(videoId: string) {
 
   return handleSuccessResponse<Video>(response);
 }
+
+export async function searchCollectionVideos(
+  collectionId: string,
+  userQuery: string,
+) {
+  const response = await fetch(
+    apiEndpoints.searchCollectionVideos(collectionId, userQuery),
+    {
+      credentials: 'include',
+    },
+  );
+
+  if (!response.ok) throw await handleErrorResponse(response);
+
+  return handleSuccessResponse<Video[]>(response);
+}
+
+export async function searchAllVideos(userQuery: string) {
+  const response = await fetch(apiEndpoints.searchAllVideos(userQuery), {
+    credentials: 'include',
+  });
+
+  if (!response.ok) throw await handleErrorResponse(response);
+
+  return handleSuccessResponse<Video[]>(response);
+}

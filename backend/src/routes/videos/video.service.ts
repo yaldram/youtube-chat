@@ -14,7 +14,7 @@ export class VideoService {
     private readonly eventBridge: EventBridgeClient,
   ) {}
 
-  async create(payload: CreateVideoDto) {
+  async create(payload: CreateVideoDto, userId: string) {
     const video = await this.xataClient.db.videos.select(['id']).getFirst({
       filter: {
         youtubeId: payload.youtubeId,
@@ -22,7 +22,7 @@ export class VideoService {
     });
 
     if (video) {
-      await this.addCollectionRelation(video.id, payload.collectionId);
+      await this.addCollectionRelation(video.id, payload.collectionId, userId);
       return video;
     }
 
@@ -31,7 +31,7 @@ export class VideoService {
       url: payload.url,
     });
 
-    await this.addCollectionRelation(newVideo.id, payload.collectionId);
+    await this.addCollectionRelation(newVideo.id, payload.collectionId, userId);
 
     const eventDetails = {
       Entries: [
@@ -49,10 +49,15 @@ export class VideoService {
     return newVideo;
   }
 
-  private async addCollectionRelation(videoId: string, collectionId: string) {
+  private async addCollectionRelation(
+    videoId: string,
+    collectionId: string,
+    userId: string,
+  ) {
     return this.xataClient.db.collectionvideos.create({
       videoId: videoId,
       collectionId,
+      userId,
     });
   }
 
@@ -67,5 +72,50 @@ export class VideoService {
       'chatEnabled',
       'publishDate',
     ]);
+  }
+
+  async searchCollectionVideos(
+    userId: string,
+    collectionId: string,
+    userQuery: string,
+  ) {
+    const collectionVideos = await this.xataClient.db.collectionvideos
+      .filter({
+        userId,
+        collectionId,
+      })
+      .select(['videoId'])
+      .getMany();
+
+    const videoIds = collectionVideos.map((video) => video.videoId.id);
+
+    return this.xataClient.db.videos.search(userQuery, {
+      target: ['title', 'author'],
+      fuzziness: 2,
+      filter: {
+        id: {
+          $any: videoIds,
+        },
+      },
+    });
+  }
+
+  async searchAllVideos(userId: string, userQuery: string) {
+    const userVideos = await this.xataClient.db.collectionvideos
+      .filter({ userId })
+      .select(['videoId'])
+      .getMany();
+
+    const videoIds = userVideos.map((video) => video.videoId.id);
+
+    return this.xataClient.db.videos.search(userQuery, {
+      target: ['title', 'author'],
+      fuzziness: 2,
+      filter: {
+        id: {
+          $any: videoIds,
+        },
+      },
+    });
   }
 }

@@ -24,8 +24,14 @@ export class CollectionController {
 
   @Get('/:collectionId/videos')
   @UseGuards(JwtAuthGuard)
-  getCollectionVideos(@Param('collectionId') collectionId: string) {
-    return this.collectionService.getCollectionVideos(collectionId);
+  getCollectionVideos(
+    @Request() request,
+    @Param('collectionId') collectionId: string,
+  ) {
+    return this.collectionService.getCollectionVideos(
+      collectionId,
+      request.user.id,
+    );
   }
 
   @Get('/:collectionId/videoIds')
@@ -34,13 +40,18 @@ export class CollectionController {
     return this.collectionService.getCollectionVideoIds(collectionId);
   }
 
+  @Get('/search/:userQuery')
+  @UseGuards(JwtAuthGuard)
+  searchCollections(@Request() request, @Param('userQuery') userQuery) {
+    return this.collectionService.searchCollections(userQuery, request.user.id);
+  }
+
   @Post()
   @UseGuards(JwtAuthGuard)
   createCollection(
     @Body() collection: CreateCollectionDto,
     @Request() request,
   ) {
-    const user = request.user;
-    return this.collectionService.create(collection, user.id);
+    return this.collectionService.create(collection, request.user.id);
   }
 }

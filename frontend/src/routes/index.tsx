@@ -22,6 +22,7 @@ import { NewCollectionPage } from './collections/pages/new/NewCollectionPage';
 import { newCollectioAction } from './collections/pages/new/newCollectionAction';
 import { NewVideoPage } from './videos/pages/new/NewVideoPage';
 import { newVideoAction } from './videos/pages/new/newVideoAction';
+import { dashboardHomeLoader } from './dashboard/pages/home/dashboardHomeLoader';
 
 export const appRouter = createBrowserRouter([
   {
@@ -39,16 +40,20 @@ export const appRouter = createBrowserRouter([
     element: <DashboardPage />,
     action: dashboardAction,
     loader: dashboardLoader,
+    shouldRevalidate: ({ currentUrl }) => {
+      // only re-validate when a new collection is added.
+      return currentUrl.pathname === '/collections/new';
+    },
     children: [
       {
         index: true,
+        loader: dashboardHomeLoader,
         element: <DashboardHomePage />,
       },
       {
         path: 'chat',
         element: <DashboardChatPage />,
       },
-
       {
         path: '/collections/new',
         element: <NewCollectionPage />,

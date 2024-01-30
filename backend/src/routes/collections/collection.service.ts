@@ -15,7 +15,7 @@ export class CollectionService {
     });
   }
 
-  async getCollectionVideos(collectionId: string) {
+  async getCollectionVideos(collectionId: string, userId: string) {
     const videos = await this.xataClient.db.collectionvideos
       .select([
         'videoId.id',
@@ -25,11 +25,26 @@ export class CollectionService {
       ])
       .getAll({
         filter: {
-          collectionId,
+          $all: {
+            collectionId,
+            userId,
+          },
         },
       });
 
     return videos.map((video) => video.videoId);
+  }
+
+  async searchCollections(userQuery: string, userId: string) {
+    const { records } = await this.xataClient.db.collections.search(userQuery, {
+      target: ['title'],
+      fuzziness: 2,
+      filter: {
+        userId,
+      },
+    });
+
+    return records;
   }
 
   async getCollectionVideoIds(collectionId: string) {

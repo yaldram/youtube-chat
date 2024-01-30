@@ -46,3 +46,13 @@ export async function fetchCollectionVideoIds(collectionId: string) {
 
   return handleSuccessResponse<string[]>(response);
 }
+
+export async function searchCollections(userQuery: string) {
+  const response = await fetch(apiEndpoints.searchCollections(userQuery), {
+    credentials: 'include',
+  });
+
+  if (!response.ok) throw await handleErrorResponse(response);
+
+  return handleSuccessResponse<Video[]>(response);
+}

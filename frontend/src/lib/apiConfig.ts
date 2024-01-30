@@ -6,9 +6,15 @@ export const apiEndpoints = {
     `${apiUrl}/collections/${collectionId}/videos`,
   collectionVideoIds: (collectionId: string) =>
     `${apiUrl}/collections/${collectionId}/videoIds`,
+  searchCollections: (userQuery: string) =>
+    `${apiUrl}/collections/search/${userQuery}`,
 
   videos: `${apiUrl}/videos`,
   videoDetails: (videoId: string) => `${apiUrl}/videos/${videoId}`,
+  searchCollectionVideos: (collectionId: string, userQuery: string) =>
+    `${apiUrl}/videos/search-collection/${userQuery}/${collectionId}`,
+  searchAllVideos: (userQuery: string) =>
+    `${apiUrl}/videos/search-all/${userQuery}`,
 
   register: `${apiUrl}/auth/register`,
   login: `${apiUrl}/auth/login`,
