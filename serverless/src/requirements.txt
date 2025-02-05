@@ -1,5 +1,6 @@
 cohere
-yt_dlp
+requests
+isodate
 xata
 youtube_transcript_api
 pusher
