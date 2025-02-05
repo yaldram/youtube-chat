@@ -1,5 +1,5 @@
 cohere
-pytube
+yt_dlp
 xata
 youtube_transcript_api
 pusher
